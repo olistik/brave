@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["root@olisti.co"]
 
   spec.summary       = %q{Be Brave with method chains.}
-  spec.description   = %q{Brave frees you from worrying about exceptions and nil values when method chaining.}
+  spec.description   = %q{Brave frees you from worrying about exceptions when method chaining.}
   spec.homepage      = "http://playersgonnaplay.it/be-brave-in-ruby-land"
   spec.license       = "MIT"
 
