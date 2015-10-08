@@ -1,8 +1,6 @@
 # Brave
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/brave`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This library allows you to do method chaining or to run an arbitrary block of code without the hassle of dealing directly with either NoMethodError or a specific list of exceptions the block could raise.
 
 ## Installation
 
@@ -22,7 +20,32 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require "brave"
+
+hash = {foo: "bar"}
+
+hash[:foo].length # 3
+hash[:boo].length # NoMethodError
+
+Brave.be { hash[:foo].length } # 3
+Brave.be { hash[:boo].length } # nil
+
+class Person
+  attr_accessor :name
+end
+
+person_a = Person.new
+person_a.name = "Foo"
+
+person_b = Person.new
+
+person_a.name.upcase # "FOO"
+person_b.name.upcase # NoMethodError
+
+Brave.be { person_a.name.upcase } # "Foo"
+Brave.be { person_b.name.upcase } # nil
+```
 
 ## Development
 
@@ -38,4 +61,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
