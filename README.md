@@ -1,5 +1,7 @@
 # Brave
 
+[![Build Status](https://travis-ci.org/olistik/brave.svg)](https://travis-ci.org/olistik/brave)
+
 This library allows you to do method chaining or to run an arbitrary block of code without the hassle of dealing directly with either NoMethodError or a specific list of exceptions the block could raise.
 
 ## Installation
